@@ -1,0 +1,17 @@
+.title {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 300;
+    margin: 15px 5px;
+    line-height: 56px;
+    color: #3f51b5;
+}
+
+header {
+    display: block;
+}
+
+.need-btn {
+    text-align: center;
+}
+
