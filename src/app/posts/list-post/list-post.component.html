@@ -1,0 +1,17 @@
+<h1 class="mat-h1 sub-title">Dog Sitting Opportunities</h1>
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      <span
+        >{{ post.petName }} Start:{{
+          post.sitStartDate | date: "mediumDate"
+        }}
+        End: {{ post.sitEndDate | date: "mediumDate" }}</span
+      >
+    </mat-expansion-panel-header>
+    <p>{{ post.instructions }}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1 info-text" *ngIf="posts.length <= 0">
+  No posts added yet!
+</p>

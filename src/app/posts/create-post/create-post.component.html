@@ -1,25 +1,59 @@
 <header class="header-background">
-    <h1 class="mat-h1 title">Make A Dog Sitting Event</h1>
+  <h1 class="mat-h1 title">Make A Dog Sitting Event</h1>
 </header>
 <mat-card>
-    <form>
-        <mat-form-field>
-            <input matInput type="text" placeholder="Pet Name" name="title">
-        </mat-form-field>
-            <mat-form-field class="event-dates-1">
-                <input placeholder="Sitting Start Date" matInput [matDatepicker]="picker1">
-                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field class="event-dates-2">
-                <input placeholder="Sitting End Date" matInput [matDatepicker]="picker2">
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-        <mat-form-field>
-            <textarea placeholder="Instructions for Sitter" matInput rows="4" name="content"></textarea>
-        </mat-form-field>
-        <button mat-raised-button color="accent" type="submit">Request Sitting</button>
-    </form>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="petName"
+        ngModel
+        required
+        minlength="1"
+        placeholder="Pet Name"
+        #petName="ngModel"
+      />
+      <mat-error *ngIf="petName.invalid">Please enter a pet name.</mat-error>
+    </mat-form-field>
+    <mat-form-field class="event-dates-1">
+      <input
+        placeholder="Sitting Start Date"
+        matInput
+        [matDatepicker]="picker1"
+        required
+        name="sitStartDate"
+        ngModel
+        #sitStartDate="ngModel"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="event-dates-2">
+      <input
+        placeholder="Sitting End Date"
+        matInput
+        [matDatepicker]="picker2"
+        required
+        name="sitEndDate"
+        ngModel
+        #sitEndDate="ngModel"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        placeholder="Instructions for Sitter"
+        matInput
+        rows="4"
+        name="instructions"
+        ngModel
+        #instructions="ngModel"
+      ></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">
+      Request Sitting
+    </button>
+  </form>
 </mat-card>
-<h1 class="mat-h1 sub-title">Dog Sitting Opportunities</h1>
